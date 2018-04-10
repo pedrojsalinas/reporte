@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Reporte</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    <ion-label stacked>Cliente</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+<ion-item>
+  <ion-label stacked>Forma de Pago</ion-label>
+  <ion-select [(ngModel)]="gender">
+    <ion-option value="f">Diario</ion-option>
+    <ion-option value="m">Contado</ion-option>
+  </ion-select>
+</ion-item>
+	<ion-item>
+	    <ion-label stacked>Total</ion-label>
+	    <ion-input type="number"></ion-input>
+	</ion-item>
+	<ion-item>
+	    <ion-label stacked>Pendiente</ion-label>
+	    <ion-input type="number"></ion-input>
+	</ion-item>
+</ion-list>
+	<ion-grid >
+	  <ion-row>
+	    <ion-col>
+	      Fecha
+	    </ion-col>
+	    <ion-col>
+	      Abono
+	    </ion-col>
+	    <ion-col>
+	      Saldo
+	    </ion-col>
+	  </ion-row>
+  	  <ion-row>
+	    <ion-col>
+	      04/03/2018
+	    </ion-col>
+	    <ion-col>
+	      $2.00
+	    </ion-col>
+	    <ion-col>
+	      $150
+	    </ion-col>
+	  </ion-row>
+  	  <ion-row>
+	    <ion-col>
+	      05/03/2018
+	    </ion-col>
+	    <ion-col>
+	      $2.00
+	    </ion-col>
+	    <ion-col>
+	      $148
+	    </ion-col>
+	  </ion-row>
+	    	  <ion-row>
+	    <ion-col>
+	      06/03/2018
+	    </ion-col>
+	    <ion-col>
+	      $4.00
+	    </ion-col>
+	    <ion-col>
+	      $144
+	    </ion-col>
+	  </ion-row>
+  	  <ion-row>
+	    <ion-col>
+	      07/03/2018
+	    </ion-col>
+	    <ion-col>
+	      $10.00
+	    </ion-col>
+	    <ion-col>
+	      $134
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+</ion-content>

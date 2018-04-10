@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Agregar Pago</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+	<ion-item>
+	    <ion-label stacked>Cliente</ion-label>
+	    <ion-input type="text"></ion-input>
+	</ion-item>
+	<ion-item>
+      <ion-label stacked>Fecha</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" ></ion-datetime>
+	</ion-item>
+  <ion-item>
+    <ion-label stacked>Monto</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Saldo</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+</ion-list>
+<button ion-button full>Guardar</button>
+</ion-content>
