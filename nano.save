@@ -1,0 +1,4 @@
+export ANDROID_HOME=/home/pedro/Android/Sdk
+export ANDROID_SDK=/home/pedro/Android/Sdk
+export PATH=$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH
+
