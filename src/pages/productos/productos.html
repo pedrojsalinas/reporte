@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Listado Producto</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addProductoPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-list-header>
+			Productos
+		</ion-list-header>		
+		<ion-item *ngFor="let producto of productoList$ | async" detail-push navPush="EditProductoPage" [navParams]="{producto:producto}">
+			{{producto.nombre}}
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -5,4 +5,4 @@ export interface Cliente{
 	cedula: number;
 	telefono: number;
 	direccion: string;
-}
+}			

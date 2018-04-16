@@ -28,7 +28,6 @@ export class ClientesPage {
   }
 
 		btnAgregar(cliente:Cliente){
-		//this.fdb.list("/myItems/").push(this.myInput);
 		this.clienteService.addCliente(cliente);
 	}
 

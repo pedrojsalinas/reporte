@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{producto?.nombre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-list>
+  <ion-item>
+    <ion-label stacked>Nombre</ion-label>
+    <ion-input [(ngModel)]="producto.nombre" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Descripción</ion-label>
+    <ion-input [(ngModel)]="producto.descripcion"type="text"></ion-input>
+  </ion-item>
+	<ion-item>
+	    <ion-label stacked>Precio Compra</ion-label>
+	    <ion-input [(ngModel)]="producto.pc" type="number"></ion-input>
+	</ion-item>
+	<ion-item>
+	    <ion-label stacked>Precio Venta</ion-label>
+	    <ion-input [(ngModel)]="producto.pv" type="number"></ion-input>
+	</ion-item>
+</ion-list>
+<button ion-button (click)="btnAgregar(producto)" full>Guardar</button>
+<button ion-button (click)="btnEliminar(producto)" full color="danger">Eliminar</button>
+</ion-content>
