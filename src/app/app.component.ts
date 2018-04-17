@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ClientesPage } from '../pages/clientes/clientes';
 import { PagoPage } from '../pages/pago/pago';
 import { ReportePage } from '../pages/reporte/reporte';
+import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductosPage } from '../pages/productos/productos';
 
 
@@ -29,6 +30,7 @@ export class MyApp {
       { title: 'Clientes', component: ClientesPage },
       { title: 'Pago', component: PagoPage },
       { title: 'Reporte', component: ReportePage },
+      { title: 'Reportes', component: ReportesPage },
       { title: 'Productos', component: ProductosPage }
     ];
 

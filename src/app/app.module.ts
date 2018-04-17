@@ -8,8 +8,8 @@ import { ClientePage } from '../pages/cliente/cliente';
 import { ClientesPage } from '../pages/clientes/clientes';
 import { PagoPage } from '../pages/pago/pago';
 import { ReportePage } from '../pages/reporte/reporte';
+import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductoPage } from '../pages/producto/producto';
-import { VentaPage } from '../pages/venta/venta';
 import { ProductosPage } from '../pages/productos/productos';
 
 
@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //servicios
 import {ClienteListService} from '../services/cliente/cliente-list.service';
 import {ProductoListService} from '../services/producto/producto-list.service';
+import {VentaListService} from '../services/venta/venta-list.service';
 
 
  var config ={
@@ -41,8 +42,8 @@ import {ProductoListService} from '../services/producto/producto-list.service';
     ClientesPage,
     PagoPage,
     ReportePage,
+    ReportesPage,
     ProductoPage,
-    VentaPage,
     ProductosPage
   ],
   imports: [
@@ -60,8 +61,8 @@ import {ProductoListService} from '../services/producto/producto-list.service';
     ClientesPage,
     PagoPage,
     ReportePage,
+    ReportesPage,
     ProductoPage,
-    VentaPage,
     ProductosPage
   ],
   providers: [
@@ -69,7 +70,8 @@ import {ProductoListService} from '../services/producto/producto-list.service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClienteListService,
-    ProductoListService
+    ProductoListService,
+    VentaListService
   ]
 })
 export class AppModule {}
