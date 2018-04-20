@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Reporte</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+	<ion-card>
+	  <ion-card-header>
+	    {{cliente.nombre}} {{cliente.apellido}}
+	    <p >
+	    	{{cliente.cedula}}
+	    </p>
+	  </ion-card-header>
+	  <ion-card-content>
+	    Cocina Mabe
+	     <ion-list>
+      <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+        {{venta.fecha_compra}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calculator" item-start></ion-icon>
+         {{venta.precio | currency}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="cash" item-start></ion-icon>
+        {{venta.estado}}
+      </ion-item>
+    </ion-list>
+	  </ion-card-content>
+	</ion-card>
+</ion-content>
+

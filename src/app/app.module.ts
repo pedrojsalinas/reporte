@@ -4,13 +4,12 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ClientePage } from '../pages/cliente/cliente';
-import { ClientesPage } from '../pages/clientes/clientes';
 import { PagoPage } from '../pages/pago/pago';
 import { ReportePage } from '../pages/reporte/reporte';
 import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductoPage } from '../pages/producto/producto';
 import { ProductosPage } from '../pages/productos/productos';
+import { ClientesPage } from '../pages/clientes/clientes';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -38,9 +37,8 @@ import {VentaListService} from '../services/venta/venta-list.service';
   declarations: [
     MyApp,
     HomePage,
-    ClientePage,
-    ClientesPage,
     PagoPage,
+    ClientesPage,
     ReportePage,
     ReportesPage,
     ProductoPage,
@@ -57,9 +55,8 @@ import {VentaListService} from '../services/venta/venta-list.service';
   entryComponents: [
     MyApp,
     HomePage,
-    ClientePage,
-    ClientesPage,
     PagoPage,
+    ClientesPage,
     ReportePage,
     ReportesPage,
     ProductoPage,

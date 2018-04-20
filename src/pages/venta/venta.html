@@ -6,7 +6,7 @@
 
 <ion-content padding>
 	<ion-list>
-		<ion-item *ngFor="let venta of ventaList$ | async" detail-push navPush="VentaPage" [navParams]="{venta:venta}" >
+		<ion-item *ngFor="let venta of ventaList$ | async" detail-push navPush="ReporteVentaPage" [navParams]="{venta:venta,cliente:cliente}" >
 			{{venta.id_producto}} 
 		</ion-item>
 	</ion-list>

@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Cliente} from '../../models/cliente/cliente.model';
 import {ClienteListService} from '../../services/cliente/cliente-list.service';
 import {Observable} from 'rxjs/Observable';
-import { ClientesPage } from '../../pages/clientes/clientes';
 
 @IonicPage()
 @Component({
@@ -34,7 +33,5 @@ export class ReportesPage {
 
 	ionViewDidLoad() {
 	}
-	addClientePage(){
-		this.navCtrl.push(ClientesPage);	
-	}
+
 }
