@@ -10,6 +10,8 @@ import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductoPage } from '../pages/producto/producto';
 import { ProductosPage } from '../pages/productos/productos';
 import { ClientesPage } from '../pages/clientes/clientes';
+import { ModalClientePage } from '../pages/modal-cliente/modal-cliente';
+import { ModalProductoPage } from '../pages/modal-producto/modal-producto';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -42,7 +44,9 @@ import {VentaListService} from '../services/venta/venta-list.service';
     ReportePage,
     ReportesPage,
     ProductoPage,
-    ProductosPage
+    ProductosPage,
+    ModalClientePage,
+    ModalProductoPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ import {VentaListService} from '../services/venta/venta-list.service';
     ReportePage,
     ReportesPage,
     ProductoPage,
-    ProductosPage
+    ProductosPage,
+    ModalClientePage,
+    ModalProductoPage
   ],
   providers: [
     StatusBar,

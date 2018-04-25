@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+  	<ion-buttons end>
+	    <button ion-button clear (click)="cerrar()">
+	  		Cancelar
+		</button>
+  	</ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+	<ion-searchbar>
+	</ion-searchbar>
+	<ion-list padding>
+		<ion-list-header>
+			Clientes
+		</ion-list-header>		
+		<ion-item *ngFor="let cliente of clienteList$ | async" (click)="itemClicked(cliente)">
+			{{cliente.nombre}} {{cliente.apellido}}
+			<p>{{cliente.cedula}}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

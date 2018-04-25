@@ -1,25 +1,44 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the PagoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import {ModalClientePage} from '../../pages/modal-cliente/modal-cliente';
+import {ModalProductoPage} from '../../pages/modal-producto/modal-producto';
+import {Cliente} from '../../models/cliente/cliente.model';
 @IonicPage()
 @Component({
   selector: 'page-pago',
   templateUrl: 'pago.html',
 })
 export class PagoPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	public isCliente: boolean;
+	public nombreCliente: string;
+	public apellidoCliente: string;
+	public cedulaCliente: string;
+	cliente: Cliente;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PagoPage');
   }
+   presentClienteModal() {
+   let profileModal = this.modalCtrl.create(ModalClientePage);
+   profileModal.present();
+
+   profileModal.onDidDismiss(cliente => {
+      if (cliente) {
+        	this.isCliente=true;
+        	this.nombreCliente= cliente.nombre;
+        	this.apellidoCliente= cliente.apellido;
+        	this.cedulaCliente= cliente.cedula;
+        	this.cliente = cliente;
+        }  
+    });
+	 }
+	 enableCliente(){
+	 	this.isCliente=false;
+	 }
+	 presentProductoModal(){
+		let productModal = this.modalCtrl.create(ModalProductoPage,{cliente:this.cliente});
+		productModal.present();
+	}
 
 }

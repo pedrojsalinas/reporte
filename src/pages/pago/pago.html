@@ -10,12 +10,29 @@
 
 <ion-content padding>
 <ion-list>
-	<ion-item>
-	    <ion-label stacked>Cliente</ion-label>
-	    <ion-input type="text"></ion-input>
-
-	</ion-item>
-  <ion-icon name="search"></ion-icon>
+	<ion-item (click)="presentClienteModal()" *ngIf="!isCliente">
+    <p>Seleccionar cliente</p>
+  </ion-item>
+  <ion-item *ngIf="isCliente">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+              {{nombreCliente}} {{apellidoCliente}}
+              <p>{{cedulaCliente}}</p>
+        </ion-col>
+        <ion-col>
+              <ion-buttons end>
+                <button ion-button icon-only (click)="enableCliente()">
+                  <ion-icon name="close"></ion-icon>
+                </button>
+              </ion-buttons> 
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </ion-item>
+  <ion-item  *ngIf="isCliente" (click)="presentProductoModal()">
+    <p>Seleccionar producto</p>
+  </ion-item>
 	<ion-item>
       <ion-label stacked>Fecha</ion-label>
       <ion-datetime displayFormat="MMM DD YYYY" ></ion-datetime>
