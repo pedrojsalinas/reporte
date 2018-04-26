@@ -1,12 +1,35 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Productos</ion-title>
+  	<ion-buttons end>
+	    <button ion-button clear (click)="cerrar()">
+	  		Cancelar
+		</button>
+  	</ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
 	<ion-list>
-	  <ion-item *ngFor="let venta of ventaList$ | async">
-		{{venta.id_producto}}
+	  <ion-item *ngFor="let venta of ventaList$ | async" (click)="itemClicked(venta)">
+		{{nombreProducto}}
+		<ion-grid>
+		  <ion-row>
+		    <ion-col>
+		      <p>
+			      {{venta.fecha_compra}}
+		      </p>
+		    </ion-col>
+		    <ion-col>
+		    	<p>
+			      {{venta.precio | currency}}
+		    	</p>
+		    </ion-col>
+		    <ion-col>
+		    	<p>
+			      {{venta.estado }}
+		    	</p>
+		    </ion-col>		    
+		  </ion-row>
+		</ion-grid>
 	  </ion-item>
 	</ion-list>
 </ion-content>

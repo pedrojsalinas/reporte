@@ -9,11 +9,16 @@ import {Cliente} from '../../models/cliente/cliente.model';
   templateUrl: 'pago.html',
 })
 export class PagoPage {
-	public isCliente: boolean;
+  public isCliente: boolean;
+  public isProducto: boolean;
+	public idProducto: string;
 	public nombreCliente: string;
 	public apellidoCliente: string;
-	public cedulaCliente: string;
+  public cedulaCliente: string;
+	public precioProducto: number;
+
 	cliente: Cliente;
+  myDate: String = new Date().toISOString();
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
   }
 
@@ -36,9 +41,18 @@ export class PagoPage {
 	 enableCliente(){
 	 	this.isCliente=false;
 	 }
+   enableProucto(){
+     this.isProducto=false;
+   }
 	 presentProductoModal(){
 		let productModal = this.modalCtrl.create(ModalProductoPage,{cliente:this.cliente});
 		productModal.present();
+
+    productModal.onDidDismiss(venta=>{
+      this.idProducto=venta.id_producto;
+      this.isProducto=true;
+      this.precioProducto= venta.precio;
+    })
 	}
 
 }

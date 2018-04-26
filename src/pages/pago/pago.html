@@ -30,12 +30,29 @@
       </ion-row>
     </ion-grid> 
   </ion-item>
-  <ion-item  *ngIf="isCliente" (click)="presentProductoModal()">
+  <ion-item  *ngIf="isCliente && !isProducto"  (click)="presentProductoModal()">
     <p>Seleccionar producto</p>
+  </ion-item>
+ <ion-item *ngIf="isProducto">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+              {{idProducto}}
+              <p>{{precioProducto | currency}}</p>
+        </ion-col>
+        <ion-col>
+              <ion-buttons end>
+                <button ion-button icon-only (click)="enableProucto()">
+                  <ion-icon name="close"></ion-icon>
+                </button>
+              </ion-buttons> 
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
   </ion-item>
 	<ion-item>
       <ion-label stacked>Fecha</ion-label>
-      <ion-datetime displayFormat="MMM DD YYYY" ></ion-datetime>
+      <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate" ></ion-datetime>
 	</ion-item>
   <ion-item>
     <ion-label stacked>Monto</ion-label>
