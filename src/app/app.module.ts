@@ -24,6 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {ClienteListService} from '../services/cliente/cliente-list.service';
 import {ProductoListService} from '../services/producto/producto-list.service';
 import {VentaListService} from '../services/venta/venta-list.service';
+import {PagoListService} from '../services/pago/pago-list.service';
 
 
  var config ={
@@ -74,7 +75,8 @@ import {VentaListService} from '../services/venta/venta-list.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ClienteListService,
     ProductoListService,
-    VentaListService
+    VentaListService,
+    PagoListService
   ]
 })
 export class AppModule {}

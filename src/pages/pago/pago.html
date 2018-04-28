@@ -37,7 +37,7 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-              {{idProducto}}
+              {{nombreProducto}}
               <p>{{precioProducto | currency}}</p>
         </ion-col>
         <ion-col>
@@ -52,16 +52,16 @@
   </ion-item>
 	<ion-item>
       <ion-label stacked>Fecha</ion-label>
-      <ion-datetime displayFormat="MMM DD, h:mm A" [(ngModel)]="myDate" ></ion-datetime>
+      <ion-datetime displayFormat="MMM DD" [(ngModel)]="myDate" ></ion-datetime>
 	</ion-item>
   <ion-item>
     <ion-label stacked>Monto</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="monto"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>Saldo</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 </ion-list>
-<button ion-button full>Guardar</button>
+<button ion-button full (click)="btnGuardar(pago)">Guardar</button>
 </ion-content>

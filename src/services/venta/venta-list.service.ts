@@ -28,8 +28,11 @@ export class VentaListService {
 		return this.VentaListRef;
 	}
 	getProductos(key){
-		this.ProductoListRef = this.db.list<Producto>('productos/'+key+'');
+		this.ProductoListRef = this.db.object<Producto>('productos/'+key+'');
 		return this.ProductoListRef;
 	}
+
+
+
 }
 
