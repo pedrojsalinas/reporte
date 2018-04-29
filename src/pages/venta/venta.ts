@@ -15,8 +15,10 @@ export class VentaPage {
   cliente:Cliente;
 	venta: Venta={
 	id_producto: '',
+  id_cliente:'',
 	fecha_compra: '',
-	estado: ''}
+	tipo: '',
+  precio:null}
   producto:Producto={
       nombre:'',
       descripcion: '',

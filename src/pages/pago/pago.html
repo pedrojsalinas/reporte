@@ -33,7 +33,7 @@
   <ion-item  *ngIf="isCliente && !isProducto"  (click)="presentProductoModal()">
     <p>Seleccionar producto</p>
   </ion-item>
- <ion-item *ngIf="isProducto">
+ <ion-item *ngIf="isProducto && isCliente">
     <ion-grid>
       <ion-row>
         <ion-col>
@@ -57,10 +57,6 @@
   <ion-item>
     <ion-label stacked>Monto</ion-label>
     <ion-input type="text" [(ngModel)]="monto"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Saldo</ion-label>
-    <ion-input type="text"></ion-input>
   </ion-item>
 </ion-list>
 <button ion-button full (click)="btnGuardar(pago)">Guardar</button>

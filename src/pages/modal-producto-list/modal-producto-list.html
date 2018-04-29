@@ -1,0 +1,23 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Productos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<ion-list>
+		<ion-list-header>
+			Productos
+		</ion-list-header>		
+		<ion-item *ngFor="let producto of productoList$ | async" (click)="itemClicked(producto)">
+			{{producto.nombre}}
+			{{producto.pv}}
+		</ion-item>
+	</ion-list>
+</ion-content>
+

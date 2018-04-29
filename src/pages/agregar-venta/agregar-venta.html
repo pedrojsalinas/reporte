@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Agregar Venta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item (click)="presentClienteModal()" *ngIf="!isCliente">
+	    <p>Seleccionar cliente</p>
+	  </ion-item>
+	  <ion-item *ngIf="isCliente">
+	    <ion-grid>
+	      <ion-row>
+	        <ion-col>
+	              {{nombreCliente}} {{apellidoCliente}}
+	              <p>{{cedulaCliente}}</p>
+	        </ion-col>
+	        <ion-col>
+	              <ion-buttons end>
+	                <button ion-button icon-only (click)="enableCliente()">
+	                  <ion-icon name="close"></ion-icon>
+	                </button>
+	              </ion-buttons> 
+	        </ion-col>
+	      </ion-row>
+	    </ion-grid> 
+	  </ion-item>
+	  <ion-item  *ngIf="isCliente && !isProducto"  (click)="presentProductoModal()">
+	    <p>Seleccionar producto</p>
+	  </ion-item>
+	 <ion-item *ngIf="isProducto && isCliente">
+	    <ion-grid>
+	      <ion-row>
+	        <ion-col>
+	              {{nombreProducto}}
+	              <p>{{precioProducto | currency}}</p>
+	        </ion-col>
+	        <ion-col>
+	              <ion-buttons end>
+	                <button ion-button icon-only (click)="enableProucto()">
+	                  <ion-icon name="close"></ion-icon>
+	                </button>
+	              </ion-buttons> 
+	        </ion-col>
+	      </ion-row>
+	    </ion-grid> 
+	  </ion-item>
+	  <ion-item>
+		  <ion-label stacked>Forma de Pago</ion-label>
+		  <ion-select [(ngModel)]="tipo">
+		    <ion-option value="Diario">Diario</ion-option>
+		    <ion-option value="Contado">Contado</ion-option>
+		  </ion-select>
+	</ion-item>
+	  <ion-item>
+	    <ion-label stacked>Monto</ion-label>
+	    <ion-input type="text" [(ngModel)]="monto"></ion-input>
+	  </ion-item>
+	</ion-list>
+	<button ion-button full (click)="btnGuardar(venta)">Guardar</button>
+</ion-content>

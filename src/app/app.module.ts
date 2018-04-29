@@ -12,6 +12,8 @@ import { ProductosPage } from '../pages/productos/productos';
 import { ClientesPage } from '../pages/clientes/clientes';
 import { ModalClientePage } from '../pages/modal-cliente/modal-cliente';
 import { ModalProductoPage } from '../pages/modal-producto/modal-producto';
+import { ModalProductoListPage } from '../pages/modal-producto-list/modal-producto-list';
+import { AgregarVentaPage } from '../pages/agregar-venta/agregar-venta';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -47,7 +49,9 @@ import {PagoListService} from '../services/pago/pago-list.service';
     ProductoPage,
     ProductosPage,
     ModalClientePage,
-    ModalProductoPage
+    ModalProductoPage,
+    ModalProductoListPage,
+    AgregarVentaPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ import {PagoListService} from '../services/pago/pago-list.service';
     ProductoPage,
     ProductosPage,
     ModalClientePage,
-    ModalProductoPage
+    ModalProductoPage,
+    ModalProductoListPage,
+    AgregarVentaPage
   ],
   providers: [
     StatusBar,

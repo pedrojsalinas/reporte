@@ -13,6 +13,7 @@ export class PagoListService {
 
 	guardarPago(pago: Pago){
 		this.VentaListRef = this.db.list<Pago>('pagos/'+pago.id_cliente+'/'+pago.id_producto);
+		this.pago={fecha:pago.fecha,monto:pago.monto};
 		return this.VentaListRef.push(pago);
 	}
 }

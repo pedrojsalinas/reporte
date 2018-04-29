@@ -17,8 +17,10 @@ export class ModalProductoPage {
   public product: any;
 	venta: Venta={
 	id_producto: '',
+  id_cliente:'',
 	fecha_compra: '',
-	estado: ''}
+	tipo: '',
+  precio:null}
 	cliente:any;
     producto: Producto ={
     nombre:'',

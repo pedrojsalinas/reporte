@@ -9,6 +9,7 @@ import { PagoPage } from '../pages/pago/pago';
 import { ReportePage } from '../pages/reporte/reporte';
 import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductosPage } from '../pages/productos/productos';
+import { AgregarVentaPage } from '../pages/agregar-venta/agregar-venta';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class MyApp {
       { title: 'Pago', component: PagoPage },
       { title: 'Reporte', component: ReportePage },
       { title: 'Reportes', component: ReportesPage },
-      { title: 'Productos', component: ProductosPage }
+      { title: 'Productos', component: ProductosPage },
+      { title: 'Venta', component: AgregarVentaPage }
     ];
 
   }

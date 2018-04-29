@@ -11,18 +11,8 @@ export class VentaListService {
 	private ProductoListRef;
 
 	constructor(private db: AngularFireDatabase) {}
+	producto:Producto;
 
-/*
-	getVentaList(){
-		return this.VentaListRef;
-	}
-	addVenta(venta:Venta){
-		return this.VentaListRef.push(venta);
-	}
-	removeVenta(venta:Venta){
-		return this.VentaListRef.remove(venta.key);
-	}
-*/
 	setKeyVenta(key){
 		this.VentaListRef =this.db.list<Venta>('ventas/'+key+'');
 		return this.VentaListRef;
@@ -32,7 +22,9 @@ export class VentaListService {
 		return this.ProductoListRef;
 	}
 
-
-
+	addVenta(venta: Venta){
+		this.ProductoListRef = this.db.list<Venta>('ventas/'+venta.id_cliente);
+		return this.ProductoListRef.push(venta);
+	}
 }
 
