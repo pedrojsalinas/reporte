@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -16,7 +15,9 @@
 		</ion-list-header>		
 		<ion-item *ngFor="let producto of productoList$ | async" (click)="itemClicked(producto)">
 			{{producto.nombre}}
-			{{producto.pv}}
+			<h3>
+				{{producto.pv | currency}}
+			</h3>
 		</ion-item>
 	</ion-list>
 </ion-content>

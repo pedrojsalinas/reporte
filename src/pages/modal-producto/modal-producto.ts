@@ -13,8 +13,8 @@ import {Venta } from '../../models/venta/venta.model';
 
 export class ModalProductoPage {
 
-  public nombreProducto: string;
-  public product: any;
+   nombreProducto: string;
+   product: any;
 	venta: Venta={
 	id_producto: '',
   id_cliente:'',
@@ -47,6 +47,7 @@ export class ModalProductoPage {
           ...c.payload.val(),
         }));
       });
+      var numbers = new Array; 
       let idProducto: any;
       this.ventaList$.subscribe(res=>{
         res.forEach(data=>{
@@ -59,10 +60,12 @@ export class ModalProductoPage {
             this.productoList$.subscribe(data => {
               this.product = data;
                   this.nombreProducto = this.product.nombre;
-
+                  console.log(this.nombreProducto);
+                  numbers.push(this.nombreProducto);
             });
           })
       });
+                  console.log(numbers);
   }
 
   ionViewDidLoad() {

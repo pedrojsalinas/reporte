@@ -8,6 +8,12 @@
 	<ion-list>
 		<ion-item *ngFor="let venta of ventaList$ | async" detail-push navPush="ReporteVentaPage" [navParams]="{venta:venta,cliente:cliente}" >
 			{{venta.id_producto}} 
+			<h3>
+				{{venta.precio | currency}}
+			</h3>
+			<p>
+				{{venta.fecha_compra | date : format : timezone}}
+			</p>
 		</ion-item>
 	</ion-list>
 </ion-content>

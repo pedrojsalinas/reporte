@@ -18,7 +18,8 @@ export class PagoPage {
   public isCliente: boolean;
   public isProducto: boolean;
   public idCliente: string;
-	public idProducto: string;
+  public idProducto: string;
+	public idVenta: string;
 	public nombreCliente: string;
 	public apellidoCliente: string;
   public cedulaCliente: string;
@@ -72,6 +73,7 @@ export class PagoPage {
       this.idProducto=venta.id_producto;
       this.isProducto=true;
       this.precioProducto= venta.precio;
+      this.idVenta=venta.key;
 
 
             this.productoList$ =this.ventaService
@@ -92,7 +94,7 @@ export class PagoPage {
     pago.id_cliente=this.idCliente;
     pago.monto=this.monto;
     console.log(pago);
-    this.pagoService.guardarPago(pago);
+    this.pagoService.guardarPago(pago,this.idVenta);
   }
 
 }

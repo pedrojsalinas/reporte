@@ -12,11 +12,11 @@
 	    </p>
 	  </ion-card-header>
 	  <ion-card-content>
-	    Cocina Mabe
+	    {{nomProducto}}
 	     <ion-list>
       <ion-item>
         <ion-icon name="calendar" item-start></ion-icon>
-        {{venta.fecha_compra}}
+        {{venta.fecha_compra | date : format : timezone}}
       </ion-item>
       <ion-item>
         <ion-icon name="calculator" item-start></ion-icon>
@@ -24,9 +24,42 @@
       </ion-item>
       <ion-item>
         <ion-icon name="cash" item-start></ion-icon>
-        {{venta.estado}}
+        {{venta.tipo}}
       </ion-item>
     </ion-list>
+    <ion-grid >
+    <ion-row>
+      <ion-col>
+        Fecha
+      </ion-col>
+      <ion-col>
+        Abono
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let pago of pagoList$ | async">
+      <ion-col>
+        {{pago.fecha | date : format : timezone}}
+      </ion-col>
+      <ion-col>
+        {{pago.monto | currency}}
+      </ion-col>
+    </ion-row>
+    <ion-list>
+      <ion-item>
+        <h2 >Total Abono</h2>
+        <p item-end>
+           {{priceTotal | currency}}
+        </p>
+
+      </ion-item>
+      <ion-item>
+        <h2 >Valor Pendiente</h2>
+        <p item-end>
+           {{pendiente | currency}}
+        </p>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 	  </ion-card-content>
 	</ion-card>
 </ion-content>

@@ -15,7 +15,7 @@
 		  <ion-row>
 		    <ion-col>
 		      <p>
-			      {{venta.fecha_compra}}
+			      {{venta.fecha_compra | date : format : timezone}}
 		      </p>
 		    </ion-col>
 		    <ion-col>
@@ -25,6 +25,9 @@
 		    </ion-col>	    
 		  </ion-row>
 		</ion-grid>
+	  </ion-item>
+	  <ion-item *ngFor="let number of numbers">
+	  	{{number}}
 	  </ion-item>
 	</ion-list>
 </ion-content>
