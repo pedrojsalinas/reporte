@@ -27,6 +27,21 @@
         {{venta.tipo}}
       </ion-item>
     </ion-list>
+    <ion-list>
+      <ion-item>
+        <h2 >Total Abono</h2>
+        <p item-end>
+           {{priceTotal | currency}}
+        </p>
+
+      </ion-item>
+      <ion-item>
+        <h2 >Valor Pendiente</h2>
+        <p item-end>
+           {{pendiente | currency}}
+        </p>
+      </ion-item>
+    </ion-list>
     <ion-grid >
     <ion-row>
       <ion-col>
@@ -44,21 +59,6 @@
         {{pago.monto | currency}}
       </ion-col>
     </ion-row>
-    <ion-list>
-      <ion-item>
-        <h2 >Total Abono</h2>
-        <p item-end>
-           {{priceTotal | currency}}
-        </p>
-
-      </ion-item>
-      <ion-item>
-        <h2 >Valor Pendiente</h2>
-        <p item-end>
-           {{pendiente | currency}}
-        </p>
-      </ion-item>
-    </ion-list>
   </ion-grid>
 	  </ion-card-content>
 	</ion-card>

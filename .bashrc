@@ -1,4 +1,3 @@
-JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
-export JAVA_HOME
-PATH=$PATH:$JAVA_HOME
-export PATH
+export ANDROID_HOME=/home/pedro/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/

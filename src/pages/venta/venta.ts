@@ -26,6 +26,9 @@ export class VentaPage {
       pc: null,
       pv: null
   }
+    nombres:any[]=[];
+    
+   nombreProducto: string;
   //private idProducto: string;
   //private nombreProducto: string;
   ventaList$: Observable<Venta[]>;
@@ -50,6 +53,8 @@ export class VentaPage {
 
             this.productoList$.subscribe(data => {
               this.product = data;
+              this.nombreProducto = this.product.nombre;
+              this.nombres.push(this.nombreProducto);
            
                   //this.nombreProducto = this.product.nombre;
                   //console.log(this.nombreProducto);

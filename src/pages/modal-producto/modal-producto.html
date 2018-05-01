@@ -9,8 +9,8 @@
 </ion-header>
 <ion-content padding>
 	<ion-list>
-	  <ion-item *ngFor="let venta of ventaList$ | async" (click)="itemClicked(venta)">
-		{{nombreProducto}}
+	  <ion-item *ngFor="let venta of ventaList$ | async; let i = index;" (click)="itemClicked(venta)">
+		{{nombres[i]}}
 		<ion-grid>
 		  <ion-row>
 		    <ion-col>
@@ -25,9 +25,6 @@
 		    </ion-col>	    
 		  </ion-row>
 		</ion-grid>
-	  </ion-item>
-	  <ion-item *ngFor="let number of numbers">
-	  	{{number}}
 	  </ion-item>
 	</ion-list>
 </ion-content>

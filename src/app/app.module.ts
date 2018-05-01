@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PagoPage } from '../pages/pago/pago';
-import { ReportePage } from '../pages/reporte/reporte';
 import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductoPage } from '../pages/producto/producto';
 import { ProductosPage } from '../pages/productos/productos';
@@ -44,7 +43,6 @@ import {PagoListService} from '../services/pago/pago-list.service';
     HomePage,
     PagoPage,
     ClientesPage,
-    ReportePage,
     ReportesPage,
     ProductoPage,
     ProductosPage,
@@ -66,7 +64,6 @@ import {PagoListService} from '../services/pago/pago-list.service';
     HomePage,
     PagoPage,
     ClientesPage,
-    ReportePage,
     ReportesPage,
     ProductoPage,
     ProductosPage,

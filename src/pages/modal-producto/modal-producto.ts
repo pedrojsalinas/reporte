@@ -29,6 +29,7 @@ export class ModalProductoPage {
     pv: null,
 
   }
+  nombres:any[]=[];
 
 
 	  ventaList$: Observable<Venta[]>;
@@ -47,7 +48,6 @@ export class ModalProductoPage {
           ...c.payload.val(),
         }));
       });
-      var numbers = new Array; 
       let idProducto: any;
       this.ventaList$.subscribe(res=>{
         res.forEach(data=>{
@@ -60,12 +60,10 @@ export class ModalProductoPage {
             this.productoList$.subscribe(data => {
               this.product = data;
                   this.nombreProducto = this.product.nombre;
-                  console.log(this.nombreProducto);
-                  numbers.push(this.nombreProducto);
+                  this.nombres.push(this.nombreProducto);
             });
           })
       });
-                  console.log(numbers);
   }
 
   ionViewDidLoad() {
@@ -79,3 +77,5 @@ export class ModalProductoPage {
     }
 
 }
+
+

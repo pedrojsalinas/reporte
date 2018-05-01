@@ -49,12 +49,20 @@ export class ReporteVentaPage {
       });
       this.pagoList$.subscribe(res=>{
         this.priceTotal = 0;
-        this.pendiente = 0;
+        //this.pendiente = 0;
         res.forEach(data=>{
           this.priceTotal += Number(data.monto);
-          this.pendiente =  Number(this.venta.precio) - this.priceTotal ;
-          console.log(this.pendiente);
+          if (this.priceTotal==null) {
+            this.pendiente=Number(data.monto);
+          }else{
+            this.pendiente =  Number(this.venta.precio) - this.priceTotal ;
+          }
         });
+         if (this.priceTotal==null) {
+            this.pendiente=Number(this.priceTotal);
+          }else{
+            this.pendiente =  Number(this.venta.precio) - this.priceTotal ;
+          }
       });
 
 
