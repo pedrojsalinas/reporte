@@ -51,7 +51,7 @@
 	  </ion-item>
 	  <ion-item>
 		  <ion-label stacked>Forma de Pago</ion-label>
-		  <ion-select [(ngModel)]="tipo">
+		  <ion-select [(ngModel)]="tipo" [ngModelOptions]="{standalone: false}">
 		    <ion-option value="Diario">Diario</ion-option>
 		    <ion-option value="Contado">Contado</ion-option>
 		  </ion-select>
@@ -61,5 +61,5 @@
 	    <ion-input type="text" [(ngModel)]="monto"></ion-input>
 	  </ion-item>
 	</ion-list>
-	<button ion-button full (click)="btnGuardar(venta)">Guardar</button>
+	<button ion-button full (click)="btnGuardar(venta)" [disabled]="!isProducto">Guardar</button>
 </ion-content>

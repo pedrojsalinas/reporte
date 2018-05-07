@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController, AlertController } from 'ionic-angular';
 import {ModalClientePage} from '../../pages/modal-cliente/modal-cliente';
 import {ModalProductoPage} from '../../pages/modal-producto/modal-producto';
 import {Cliente} from '../../models/cliente/cliente.model';
@@ -8,6 +8,7 @@ import {PagoListService} from '../../services/pago/pago-list.service';
 import {Observable} from 'rxjs/Observable';
 import {Producto } from '../../models/producto/producto.model';
 import {Pago } from '../../models/pago/pago.model';
+import {ToastService} from '../../services/toast/toast.service';
 
 @IonicPage()
 @Component({
@@ -39,7 +40,14 @@ export class PagoPage {
   monto;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private ventaService: VentaListService,private pagoService: PagoListService,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private ventaService: VentaListService,
+    private pagoService: PagoListService,
+    public modalCtrl: ModalController,
+    public toastService: ToastService,
+    public alertCtrl: AlertController,
+    ) {
   }
 
   ionViewDidLoad() {
@@ -61,9 +69,11 @@ export class PagoPage {
 	 }
 	 enableCliente(){
 	 	this.isCliente=false;
+      this.enableProucto();
 	 }
    enableProucto(){
      this.isProducto=false;
+     this.monto=null;
    }
 	 presentProductoModal(){
 		let productModal = this.modalCtrl.create(ModalProductoPage,{cliente:this.cliente});
@@ -89,12 +99,28 @@ export class PagoPage {
           });
 	}
   btnGuardar(pago:Pago){
+    if (this.monto==null) {
+      this.doAlert();
+    }else{
     pago.fecha=this.myDate;
     pago.id_producto=this.idProducto;
     pago.id_cliente=this.idCliente;
     pago.monto=this.monto;
-    console.log(pago);
     this.pagoService.guardarPago(pago,this.idVenta);
+    this.toastService.show('Pago agregado correctamente.');
+    this.enableCliente();
+    }
+
   }
+
+      doAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Alerta!',
+      subTitle: 'Seleccione un monto.',
+      buttons: ['Ok']
+    });
+
+    alert.present();
+}
 
 }

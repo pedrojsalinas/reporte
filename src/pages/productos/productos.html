@@ -14,13 +14,15 @@
 
 
 <ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
 	<ion-list>
 		<ion-list-header>
 			Productos
 		</ion-list-header>		
-		<ion-item *ngFor="let producto of productoList$ | async" detail-push navPush="EditProductoPage" [navParams]="{producto:producto}">
+		<ion-item *ngFor="let producto of searchItems" detail-push navPush="EditProductoPage" [navParams]="{producto:producto}">
 			{{producto.nombre}}
+      <p>{{producto.pc | currency}}</p>
 		</ion-item>
 	</ion-list>
 </ion-content>

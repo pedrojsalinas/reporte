@@ -56,8 +56,8 @@
 	</ion-item>
   <ion-item>
     <ion-label stacked>Monto</ion-label>
-    <ion-input type="text" [(ngModel)]="monto"></ion-input>
+    <ion-input type="number" [(ngModel)]="monto"></ion-input>
   </ion-item>
 </ion-list>
-<button ion-button full (click)="btnGuardar(pago)">Guardar</button>
+<button ion-button full (click)="btnGuardar(pago)" [disabled]="!isProducto">Guardar</button>
 </ion-content>

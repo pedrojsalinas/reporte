@@ -27,7 +27,7 @@ export class VentaPage {
       pv: null
   }
     nombres:any[]=[];
-    
+
    nombreProducto: string;
   //private idProducto: string;
   //private nombreProducto: string;
@@ -50,25 +50,10 @@ export class VentaPage {
             .getProductos(data.id_producto).snapshotChanges().map(res => {
                     return res.payload.val();
                 });
-
             this.productoList$.subscribe(data => {
               this.product = data;
               this.nombreProducto = this.product.nombre;
               this.nombres.push(this.nombreProducto);
-           
-                  //this.nombreProducto = this.product.nombre;
-                  //console.log(this.nombreProducto);
-
-                                  /*for (var i = 0; i < data.length; ++i) {
-                  // code...
-                  //this.nombreProducto[i] = this.product.nombre;
-                  console.log(this.nombreProducto[i]+i);
-                     data.forEach(producto=>{
-                console.log(producto.nombre);
-              })
-                }*/
-
-
             });
 
         })

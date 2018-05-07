@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController,AlertController } from 'ionic-angular';
 import {ModalClientePage} from '../../pages/modal-cliente/modal-cliente';
 import {ModalProductoListPage} from '../../pages/modal-producto-list/modal-producto-list';
 import {Cliente} from '../../models/cliente/cliente.model';
 import {VentaListService} from '../../services/venta/venta-list.service';
 import {Producto } from '../../models/producto/producto.model';
 import {Venta } from '../../models/venta/venta.model';
+import {ToastService} from '../../services/toast/toast.service';
+
 
 
 @IonicPage()
@@ -36,7 +38,12 @@ export class AgregarVentaPage {
   myDate: string = new Date().toISOString();
   monto;
   tipo;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private ventaService: VentaListService,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    private ventaService: VentaListService,
+    public modalCtrl: ModalController,
+    private toastService: ToastService,
+    public alertCtrl: AlertController ) {
   }
 
   ionViewDidLoad() {
@@ -60,17 +67,19 @@ export class AgregarVentaPage {
 	 }
 	 enableCliente(){
 	 	this.isCliente=false;
+   this.enableProucto();
 	 }
    enableProucto(){
      this.isProducto=false;
      this.monto= null;
+     this.tipo=null;
    }
 
 	presentProductoModal(){
 	   let profileModal = this.modalCtrl.create(ModalProductoListPage);
 	   profileModal.present();	
       profileModal.onDidDismiss(producto => {
-      	      this.idProducto=producto.key;
+  	      this.idProducto=producto.key;
 		      this.isProducto=true;
 		      this.precioProducto= producto.pv;
 		      this.monto= producto.pv;
@@ -78,12 +87,31 @@ export class AgregarVentaPage {
     });
 	}
 	 btnGuardar(venta:Venta){
-	    venta.id_producto=this.idProducto;
-	    venta.id_cliente=this.idCliente;
-	    venta.fecha_compra=this.myDate;
-	    venta.precio=this.monto;
-	    venta.tipo=this.tipo;
-	    this.ventaService.addVenta(venta);
+
+     if(this.tipo==null){
+       this.doAlert();
+       console.log('sasasa');
+     }else{
+     venta.id_producto=this.idProducto;
+      venta.id_cliente=this.idCliente;
+      venta.fecha_compra=this.myDate;
+      venta.precio=this.monto;
+      venta.tipo=this.tipo;
+      this.ventaService.addVenta(venta);
+      this.toastService.show('Venta Agregada Correctamente');
+      this.enableCliente();
+      this.enableProucto();
+     }
+
   }
+    doAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Alerta!',
+      subTitle: 'Seleccione una forma de pago.',
+      buttons: ['Ok']
+    });
+
+    alert.present();
+}
 
 }

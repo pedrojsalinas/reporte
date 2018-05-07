@@ -13,6 +13,7 @@ import { ModalClientePage } from '../pages/modal-cliente/modal-cliente';
 import { ModalProductoPage } from '../pages/modal-producto/modal-producto';
 import { ModalProductoListPage } from '../pages/modal-producto-list/modal-producto-list';
 import { AgregarVentaPage } from '../pages/agregar-venta/agregar-venta';
+import { LoginPage } from '../pages/login/login';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,6 +27,8 @@ import {ClienteListService} from '../services/cliente/cliente-list.service';
 import {ProductoListService} from '../services/producto/producto-list.service';
 import {VentaListService} from '../services/venta/venta-list.service';
 import {PagoListService} from '../services/pago/pago-list.service';
+import {ToastService} from '../services/toast/toast.service';
+import { AuthService } from '../services/auth/auth.service';
 
 
  var config ={
@@ -49,7 +52,8 @@ import {PagoListService} from '../services/pago/pago-list.service';
     ModalClientePage,
     ModalProductoPage,
     ModalProductoListPage,
-    AgregarVentaPage
+    AgregarVentaPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,8 @@ import {PagoListService} from '../services/pago/pago-list.service';
     ModalClientePage,
     ModalProductoPage,
     ModalProductoListPage,
-    AgregarVentaPage
+    AgregarVentaPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -79,7 +84,9 @@ import {PagoListService} from '../services/pago/pago-list.service';
     ClienteListService,
     ProductoListService,
     VentaListService,
-    PagoListService
+    PagoListService,
+    ToastService,
+    AuthService
   ]
 })
 export class AppModule {}

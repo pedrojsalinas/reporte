@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,29 +9,35 @@ import { PagoPage } from '../pages/pago/pago';
 import { ReportesPage } from '../pages/reportes/reportes';
 import { ProductosPage } from '../pages/productos/productos';
 import { AgregarVentaPage } from '../pages/agregar-venta/agregar-venta';
+import { LoginPage } from '../pages/login/login';
+import { AuthService } from '../services/auth/auth.service';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  rootPage;
+  pages;
+  private menu: MenuController;
+ 
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = HomePage;
-
-  pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    private auth: AuthService,
+    menu: MenuController) {
+    this.menu = menu;
+    this.platform = platform;
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Clientes', component: ClientesPage },
-      { title: 'Pago', component: PagoPage },
-      { title: 'Reportes', component: ReportesPage },
-      { title: 'Productos', component: ProductosPage },
-      { title: 'Venta', component: AgregarVentaPage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Clientes', component: ClientesPage, icon: 'contact' },
+      { title: 'Productos', component: ProductosPage, icon: 'basket' },
+      { title: 'Pago', component: PagoPage, icon: 'cash' },
+      { title: 'Venta', component: AgregarVentaPage, icon: 'pricetag' },
+      { title: 'Reportes', component: ReportesPage, icon: 'list-box' },
     ];
 
   }
@@ -43,11 +49,29 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.auth.afAuth.authState
+    .subscribe(
+      user => {
+        if (user) {
+          this.rootPage = HomePage;
+        } else {
+          this.rootPage = LoginPage;
+        }
+      },
+      () => {
+        this.rootPage = LoginPage;
+      }
+    );
   }
-
+  logout() {
+    this.menu.close();
+    this.auth.signOut();
+    this.nav.setRoot(HomePage);
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+    this.menu.close();
     this.nav.setRoot(page.component);
   }
 }
