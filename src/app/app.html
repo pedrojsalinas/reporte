@@ -7,6 +7,7 @@
 
   <ion-content *ngIf="auth.authenticated" >
     <ion-list >
+      <ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>
       <ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >
         <ion-icon [name]="p.icon" item-end></ion-icon>
           {{p.title}}
